@@ -12,7 +12,7 @@ dependencies:
     sdk: flutter
   analytics: 
     git: 
-      url: https://github.com/segmentio/analytics_flutter
+      url: https://github.com/yendo-eng/analytics_flutter
       ref: main
       path: packages/core 
   json_annotation: ^4.8.0
