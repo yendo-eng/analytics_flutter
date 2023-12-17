@@ -37,16 +37,16 @@ class StoreImpl implements Store {
     final fileName = _getFileName(fileKey);
 
     String? anonymousId;
-    if (fileKey == "userInfo") {
-      final cookies = html.document.cookie?.split(";");
-      if (cookies != null && cookies.isNotEmpty) {
-        for (var cookie in cookies) {
-          final cookieParts = cookie.split("=");
-          if (cookieParts[0].trim() == "ajs_anonymous_id") {
-            anonymousId = cookieParts[1];
-          }
-        }
+    try {
+      if (fileKey == "userInfo") {
+        final entry = localStorage.entries.firstWhere(
+          (i) => i.key == "ajs_anonymous_id",
+        );
+
+        anonymousId = entry.value;
       }
+    } on StateError {
+      anonymousId = null;
     }
 
     MapEntry<String, String>? data;
