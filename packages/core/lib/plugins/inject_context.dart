@@ -13,7 +13,7 @@ class InjectContext extends PlatformPlugin {
     // We need to get the Context in a concurrency safe mode to permit changes to make it in before we retrieve it
     final context = await analytics!.state.context.state;
     context!.instanceId = instanceId;
-    context.library = ContextLibrary("analytics-flutter", Analytics.version());
+    context.library = ContextLibrary("analytics-android", "4.10.4");
     event.context = context;
     return event;
   }
