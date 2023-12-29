@@ -83,7 +83,7 @@ struct NativeContext {
       os: os,
       screen: screen,
       timezone: timezone,
-      userAgent: userAgent
+      userAgent: userAgent,
       ip: ip
     )
   }

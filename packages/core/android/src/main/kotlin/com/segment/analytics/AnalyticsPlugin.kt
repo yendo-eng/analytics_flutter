@@ -172,7 +172,7 @@ class AnalyticsPlugin : FlutterPlugin, NativeContextApi, EventChannel.StreamHand
                         density = displayMetrics.density.toDouble(),
                     ),
                     timezone = TimeZone.getDefault().id,
-                    userAgent = System.getProperty("http.agent")
+                    userAgent = System.getProperty("http.agent"),
                     ip = "1.1.1.1"
                 )
             )
