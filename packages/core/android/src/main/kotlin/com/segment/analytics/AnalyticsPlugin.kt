@@ -173,6 +173,7 @@ class AnalyticsPlugin : FlutterPlugin, NativeContextApi, EventChannel.StreamHand
                     ),
                     timezone = TimeZone.getDefault().id,
                     userAgent = System.getProperty("http.agent")
+                    ip = "1.1.1.1"
                 )
             )
         )

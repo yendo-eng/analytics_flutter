@@ -333,11 +333,12 @@ class Context extends JSONExtendableImpl {
   ContextOS os;
   ContextScreen screen;
   String timezone;
+  String ip;
   String? instanceId;
   UserTraits traits;
 
   Context(this.app, this.device, this.library, this.locale, this.network,
-      this.os, this.screen, this.timezone, this.traits,
+      this.os, this.screen, this.timezone, this.ip, this.traits,
       {this.instanceId, Map<String, dynamic>? custom})
       : super(custom: custom);
   Context.fromNative(NativeContext nativeContext, this.traits)
@@ -364,7 +365,8 @@ class Context extends JSONExtendableImpl {
             ? ContextScreen(0, 0)
             : ContextScreen.fromNative(
                 nativeContext.screen as NativeContextScreen),
-        timezone = nativeContext.timezone ?? "";
+        timezone = nativeContext.timezone ?? "",
+        ip = nativeContext.ip ?? "";
 
   factory Context.fromJson(Map<String, dynamic> json) =>
       JSONExtendable.fromJson(json, _$ContextFromJson, Context._builtInKeys);
@@ -379,7 +381,8 @@ class Context extends JSONExtendableImpl {
     "os",
     "screen",
     "timezone",
-    "traits"
+    "ip",
+    "traits",
   };
 }
 
@@ -664,6 +667,7 @@ Context mergeContext(Context a, Context b) {
       a.os,
       mergeContextScreen(a.screen, b.screen),
       a.timezone,
+      a.ip,
       a.traits,
       instanceId: a.instanceId ?? b.instanceId);
 }

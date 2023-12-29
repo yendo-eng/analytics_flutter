@@ -19,6 +19,7 @@ class NativeContext {
     this.screen,
     this.timezone,
     this.userAgent,
+    this.ip,
   });
 
   NativeContextApp? app;
@@ -39,6 +40,8 @@ class NativeContext {
 
   String? userAgent;
 
+  String? ip;
+
   Object encode() {
     return <Object?>[
       app?.encode(),
@@ -50,6 +53,7 @@ class NativeContext {
       screen?.encode(),
       timezone,
       userAgent,
+      ip,
     ];
   }
 
@@ -77,6 +81,7 @@ class NativeContext {
           : null,
       timezone: result[7] as String?,
       userAgent: result[8] as String?,
+      ip: result[9] as String?,
     );
   }
 }
@@ -325,19 +330,19 @@ class _NativeContextApiCodec extends StandardMessageCodec {
   @override
   Object? readValueOfType(int type, ReadBuffer buffer) {
     switch (type) {
-      case 128: 
+      case 128:
         return NativeContext.decode(readValue(buffer)!);
-      case 129: 
+      case 129:
         return NativeContextApp.decode(readValue(buffer)!);
-      case 130: 
+      case 130:
         return NativeContextDevice.decode(readValue(buffer)!);
-      case 131: 
+      case 131:
         return NativeContextLibrary.decode(readValue(buffer)!);
-      case 132: 
+      case 132:
         return NativeContextNetwork.decode(readValue(buffer)!);
-      case 133: 
+      case 133:
         return NativeContextOS.decode(readValue(buffer)!);
-      case 134: 
+      case 134:
         return NativeContextScreen.decode(readValue(buffer)!);
       default:
         return super.readValueOfType(type, buffer);

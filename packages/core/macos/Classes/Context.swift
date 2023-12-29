@@ -42,6 +42,7 @@ struct NativeContext {
   var screen: NativeContextScreen? = nil
   var timezone: String? = nil
   var userAgent: String? = nil
+  var ip: String? = nil
 
   static func fromList(_ list: [Any?]) -> NativeContext? {
     var app: NativeContextApp? = nil
@@ -71,6 +72,7 @@ struct NativeContext {
     }
     let timezone = list[7] as? String 
     let userAgent = list[8] as? String 
+    let ip = list[9] as? String
 
     return NativeContext(
       app: app,
@@ -82,6 +84,7 @@ struct NativeContext {
       screen: screen,
       timezone: timezone,
       userAgent: userAgent
+      ip: ip
     )
   }
   func toList() -> [Any?] {
@@ -95,6 +98,7 @@ struct NativeContext {
       screen?.toList(),
       timezone,
       userAgent,
+      ip,
     ]
   }
 }

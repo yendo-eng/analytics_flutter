@@ -10,6 +10,7 @@ class NativeContext {
   NativeContextScreen? screen;
   String? timezone;
   String? userAgent;
+  String? ip;
 }
 
 class NativeContextApp {

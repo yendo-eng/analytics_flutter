@@ -32,7 +32,8 @@ data class NativeContext (
   val os: NativeContextOS? = null,
   val screen: NativeContextScreen? = null,
   val timezone: String? = null,
-  val userAgent: String? = null
+  val userAgent: String? = null,
+  val ip: String? = null
 
 ) {
   companion object {
@@ -59,7 +60,8 @@ data class NativeContext (
       }
       val timezone = list[7] as? String
       val userAgent = list[8] as? String
-      return NativeContext(app, device, library, locale, network, os, screen, timezone, userAgent)
+      val ip = list[9] as? String
+      return NativeContext(app, device, library, locale, network, os, screen, timezone, userAgent, ip)
     }
   }
   fun toList(): List<Any?> {
@@ -73,6 +75,7 @@ data class NativeContext (
       screen?.toList(),
       timezone,
       userAgent,
+      ip,
     )
   }
 }

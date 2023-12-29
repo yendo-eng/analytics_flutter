@@ -83,7 +83,8 @@ public class AnalyticsPlugin: NSObject, FlutterPlugin, NativeContextApi, Flutter
                 height: Int32(screen.height),
                 width: Int32(screen.width)),
             timezone: TimeZone.current.identifier,
-            userAgent: userAgent)))
+            userAgent: userAgent,
+            ip: "1.1.1.1")))
     }
     
     public static func register(with registrar: FlutterPluginRegistrar) {

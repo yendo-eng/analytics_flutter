@@ -345,6 +345,7 @@ Context _$ContextFromJson(Map<String, dynamic> json) => Context(
       ContextOS.fromJson(json['os'] as Map<String, dynamic>),
       ContextScreen.fromJson(json['screen'] as Map<String, dynamic>),
       json['timezone'] as String,
+      json['ip'] as String,
       UserTraits.fromJson(json['traits'] as Map<String, dynamic>),
       instanceId: json['instanceId'] as String?,
       custom: json['custom'] as Map<String, dynamic>?,
@@ -361,6 +362,7 @@ Map<String, dynamic> _$ContextToJson(Context instance) {
     'os': instance.os.toJson(),
     'screen': instance.screen.toJson(),
     'timezone': instance.timezone,
+    'ip': instance.ip,
   };
 
   void writeNotNull(String key, dynamic value) {
